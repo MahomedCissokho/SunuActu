@@ -1,5 +1,6 @@
 <?php
     require_once 'ConnexionManager.php';
+    require_once 'models/domain/Categorie.php';
 
     class CategorieDao {
 

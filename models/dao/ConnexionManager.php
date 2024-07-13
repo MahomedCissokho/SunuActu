@@ -15,7 +15,9 @@ class ConnexionManager
 
     }
 
-    // make a unique connexion using a static method
+    /*
+     make a unique connexion using a static method
+    */
 
     public static function getInstance(){
         if(self::$instance == null)

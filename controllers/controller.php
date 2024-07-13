@@ -1,9 +1,9 @@
 <?php
 
-    require_once'modele/dao/ArticleDao.php';
-    require_once'modele/dao/CategorieDao.php';
-    require_once'modele/domaine/Article.php';
-    require_once'modele/domaine/Categorie.php';
+    require_once'models/dao/ArticleDao.php';
+    require_once'models/dao/CategorieDao.php';
+    require_once'models/domain/Article.php';
+    require_once'models/domain/Categorie.php';
 
     class Controller{
         function __construct(){
@@ -17,7 +17,7 @@
             $articles = $articleDao->getListArticles();
             $categories = $categorieDao->getListCategories() ?? [];
 
-            require_once 'vue/accueil.php';
+            require_once 'views/accueil.php';
         }
         
         public function showArticle($id){
@@ -27,7 +27,7 @@
             $article = $articleDao->getArticleById($id);
             $categories = $categorieDao->getListCategories();
 
-            require_once 'vue/article.php';
+            require_once 'views/article.php';
         }
 
         public function showCategorie($id){
@@ -37,7 +37,7 @@
             $articles = $articleDao->getArticlesByCategorie($id);
             $categories = $categorieDao->getListCategories();
 
-            require_once 'vue/articleByCategorie.php';
+            require_once 'views/articleByCategorie.php';
         }
 
         public function showErrorPage(){
