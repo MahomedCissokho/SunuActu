@@ -29,7 +29,7 @@
             <a href="/logout" class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md hover:bg-white hover:text-green-500 transition-all ease-in duration-300">Déconnexion</a>
             <span class="text-white font-bold bg-neutral-800/20 rounded-full p-2"><?= $_SESSION['user']['role'] ?></span>
         <?php else : ?>
-            <a href="/login" class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md">Connexion</a>
+            <a href="/login" class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md hover:bg-white hover:text-green-500 transition-all ease-in duration-300">Connexion</a>
         <?php endif; ?>
     </div>
 </div>

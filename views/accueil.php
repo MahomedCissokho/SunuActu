@@ -12,6 +12,16 @@ include 'views/header.php';
         background-color: #f3f4f6; /* Couleur de fond */
     }
 </style>
+
+<?php if (isset($_SESSION['user']) && ($_SESSION['user']['role'] === 'admin' || $_SESSION['user']['role'] === 'editeur')) : ?>
+    <nav class="bg-gray-200 py-7 px-4 mb-4">
+        <ul class="flex justify-center gap-10 items-center ">
+            <li><a href="/add_article" class="duration-300 transition-all ease-out text-white hover:text-green-400 hover:bg-white bg-green-400 rounded-lg px-3 py-4 font-semibold ">Nouvel Article</a></li>
+            <li><a href="/add_category" class="duration-300 transition-all ease-out text-white hover:text-green-400 hover:bg-white bg-green-400 rounded-lg px-3 py-4 font-semibold">Nouvelle Catégorie</a></li>
+            <li><a href="/list_categories" class="duration-300 transition-all ease-out text-white hover:text-green-400 hover:bg-white bg-green-400 rounded-lg px-3 py-4 font-semibold">Liste des Catégories</a></li>
+        </ul>
+    </nav>
+    <?php endif; ?>
 <h1 class="text-3xl font-bold text-center mt-10 mb-5 text-green-500">Votre Site d'Actualité N°1 au Sénégal</h1>
 
 <section id="articles" class="container max-w-6xl mx-auto">

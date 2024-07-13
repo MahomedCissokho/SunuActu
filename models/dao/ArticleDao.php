@@ -39,7 +39,15 @@ class ArticleDao {
         $stmt = $this->bdd->prepare('SELECT * FROM article WHERE id = ?');
         $stmt->bind_param('i', $id);
         $stmt->execute();
-        $data = $stmt->get_result()->fetch_assoc();
+        $result = $stmt->get_result();
+    
+        // Check if a row was returned
+        if ($result->num_rows == 0) {
+            return null; // No article found with the given id
+        }
+    
+        $data = $result->fetch_assoc();
+    
         $article = new Article();
         $article->id = $data['id'];
         $article->titre = $data['titre'];
@@ -47,8 +55,10 @@ class ArticleDao {
         $article->categorie = $data['categorie'];
         $article->dateCreation = $data['dateCreation'];
         $article->dateModification = $data['dateModification'];
+    
         return $article;
     }
+    
 
     public function getArticlesByCategorie($idCategorie) {
         $articles = array();
@@ -80,7 +90,6 @@ class ArticleDao {
         $stmt->bind_param('sssii', $article->titre, $article->contenu, $article->categorie, $article->dateModification, $article->id);
         $stmt->execute();
     }
-
     public function deleteArticle($id) {
         $stmt = $this->bdd->prepare('DELETE FROM article WHERE id = ?');
         $stmt->bind_param('i', $id);
